@@ -1,3 +1,4 @@
+package Decorator;
 //Decorator Pattern
 public abstract class RoleDecorator implements IVolunteer {
     protected IVolunteer tempVolunteer;

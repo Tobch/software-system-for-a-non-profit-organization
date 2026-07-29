@@ -1,3 +1,4 @@
+package Strategy;
 //Strategy Pattern
 public class EmailStrategy implements CommunicationStrategy {
     @Override

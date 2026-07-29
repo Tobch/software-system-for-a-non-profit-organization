@@ -1,3 +1,4 @@
+package Strategy;
 //Strategy Pattern
 public class MessageManager {
     private CommunicationStrategy strategy;

@@ -1,3 +1,4 @@
+package Decorator;
 //Decorator Pattern
 public class EventLeadDecorator extends RoleDecorator {
 

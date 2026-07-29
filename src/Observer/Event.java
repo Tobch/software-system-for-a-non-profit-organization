@@ -1,3 +1,4 @@
+package Observer;
 //Observer Pattern
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,6 @@ public class Event {
 
     public void updateEventDetails(String newDate) {
         this.date = newDate;
-        notifyObservers(); // notify when details is changed
+        notifyObservers(); // this is to notify when details is changed
     }
 }

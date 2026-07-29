@@ -1,3 +1,4 @@
+package Decorator;
 //Decorator Pattern
 public class StandardVolunteer implements IVolunteer {
     private String name;
