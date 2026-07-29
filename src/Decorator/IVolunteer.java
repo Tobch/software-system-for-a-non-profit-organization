@@ -1,3 +1,5 @@
+package Decorator;
+import Observer.Observer;
 //Decorator Pattern
 //this allows us to add specific roles without changing the Volunteer class
 // this so that Volunteers can attach to Events

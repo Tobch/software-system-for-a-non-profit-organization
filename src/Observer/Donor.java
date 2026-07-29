@@ -1,3 +1,4 @@
+package Observer;
 //Observer Pattern
 public class Donor implements Observer {
     private String name;
