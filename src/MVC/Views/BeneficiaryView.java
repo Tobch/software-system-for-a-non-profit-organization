@@ -41,7 +41,9 @@ public class BeneficiaryView {
             } else if (choice.equals("4")) {
                 System.out.println("Enter the EXACT full record you want to delete:");
                 String targetRecord = scanner.nextLine();
-                controller.deleteSystemRecord(targetRecord);
+                System.out.print("Enter Admin Password to authorize deletion: ");
+                String password = scanner.nextLine();
+                controller.deleteSystemRecord(targetRecord, password);
             } else if (choice.equals("5")) {
                 back = true;
             } else {

@@ -15,7 +15,9 @@ public class MainView {
             System.out.println("4. Manage Volunteers");
             System.out.println("5. Manage Donors");
             System.out.println("6. Send Communications");
-            System.out.println("7. Exit System");
+            System.out.println("7. Admin Quick Actions");
+            System.out.println("8. Generate System Reports");
+            System.out.println("9. Exit System");
             System.out.print("Select a module: ");
 
             String choice = scanner.nextLine();
@@ -27,7 +29,9 @@ public class MainView {
                 case "4": new VolunteerView(scanner).showMenu(); break;
                 case "5": new DonorView(scanner).showMenu(); break;
                 case "6": new CommunicationView(scanner).showMenu(); break;
-                case "7": running = false; System.out.println("Exiting..."); break;
+                case "7": new AdminView(scanner).showMenu(); break; 
+                case "8": new ReportView(scanner).showMenu(); break;
+                case "9": running = false; System.out.println("Exiting..."); break;
                 default: System.out.println("Invalid choice.");
             }
         }

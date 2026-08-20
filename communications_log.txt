@@ -1,1 +1,6 @@
 Sent SMS to Ahmed
+Sent Email to omar@example.com
+Sent SMS to 01009077422
+Sent SMS to Mighty Tobch (01009077422)
+Sent Email to Charity.com
+Sent SMS to 01005215072

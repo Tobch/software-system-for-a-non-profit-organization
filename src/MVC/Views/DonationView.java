@@ -27,9 +27,14 @@ public class DonationView {
             if (choice.equals("1")) {
                 System.out.print("Type (Online/Check/InKind): ");
                 String type = scanner.nextLine();
-                System.out.print("Details: ");
+                String onlineMethod = "";
+                if (type.equalsIgnoreCase("Online")) {
+                    System.out.print("Select Payment Strategy (CreditCard/PayPal/Crypto): ");
+                    onlineMethod = scanner.nextLine();
+                }
+                System.out.print("Details (e.g., amount or item description): ");
                 String details = scanner.nextLine();
-                controller.addDonation(type, details);
+                controller.addDonation(type, details, onlineMethod);
             } else if (choice.equals("2")) {
                 controller.viewDonations();
             } else if (choice.equals("3")) {
@@ -41,7 +46,9 @@ public class DonationView {
             } else if (choice.equals("4")) {
                 System.out.println("Enter the EXACT full record you want to delete:");
                 String targetRecord = scanner.nextLine();
-                controller.deleteSystemRecord(targetRecord);
+                System.out.print("Enter Admin Password to authorize deletion: ");
+                String password = scanner.nextLine();
+                controller.deleteSystemRecord(targetRecord, password);
 
             } else if (choice.equals("5")) {
                 back = true;

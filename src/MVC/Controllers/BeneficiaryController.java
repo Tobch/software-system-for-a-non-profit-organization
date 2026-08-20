@@ -3,9 +3,15 @@ package MVC.Controllers;
 import Clientrequirements.Beneficiary;
 import Singleton.FileDB;
 import java.util.List;
+import Iterator.IAggregate;
+import Iterator.RecordCollection;
+import Iterator.IIterator;
+import Proxy.IDatabaseAdmin;
+import Proxy.SecureDatabaseProxy;
 
 public class BeneficiaryController {
     private FileDB dbManager = FileDB.getInstance();
+    private IDatabaseAdmin adminProxy = new SecureDatabaseProxy();
     private final String FILE_NAME = "beneficiaries_db.txt";
 
     public void addBeneficiary(String name, String needs) {
@@ -15,8 +21,14 @@ public class BeneficiaryController {
     }
 
     public void viewBeneficiaries() {
-        List<String> records = dbManager.readRecords(FILE_NAME);
-        records.forEach(System.out::println);
+        List<String> rawRecords = dbManager.readRecords(FILE_NAME);
+        IAggregate recordCollection = new RecordCollection(rawRecords);
+        IIterator iterator = recordCollection.createIterator();
+        System.out.println("\n--- All Beneficiary Records ---");
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        System.out.println("-------------------------------\n");
     }
 
     public void updateSystemRecord(String oldData, String newData) {
@@ -24,8 +36,7 @@ public class BeneficiaryController {
         System.out.println("Record updated successfully.");
     }
 
-    public void deleteSystemRecord(String dataToDelete) {
-        dbManager.deleteRecord(FILE_NAME, dataToDelete);
-        System.out.println("Record deleted successfully.");
+    public void deleteSystemRecord(String dataToDelete, String password) {
+        adminProxy.deleteRecord(FILE_NAME, dataToDelete, password);
     }
 }
