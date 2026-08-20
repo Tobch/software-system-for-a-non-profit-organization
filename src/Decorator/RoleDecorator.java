@@ -14,7 +14,7 @@ public abstract class RoleDecorator implements IVolunteer {
 
     @Override
     public void update(String message) {
-        // Delegate the update call to the underlying volunteer
+        // Forward the update to the wrapped volunteer
         tempVolunteer.update(message); 
     }
 }
